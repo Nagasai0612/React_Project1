@@ -1,0 +1,93 @@
+/* src/App.css */
+.app {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Makes it responsive */
+}
+
+.input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.news-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  .input {
+    width: 250px;
+    padding: 8px;
+  }
+
+  .btn {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  .input {
+    width: 200px;
+    padding: 6px;
+  }
+
+  .btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}

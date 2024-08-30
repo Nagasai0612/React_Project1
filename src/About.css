@@ -1,0 +1,108 @@
+.about-container {
+    text-align: center;
+    padding: 100px;
+    background-color: #f8f8f8;
+  }
+  
+  .profile-pic {
+    border-radius: 50%;
+    border: 5px solid #17a2b8;
+    width: 175px;
+    height: 175px;
+    animation: animate 5s linear infinite;
+    transform-origin: center;
+    box-shadow: 0 4px 8px #17a2b8;
+  }
+
+  @keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(359deg);
+    }
+}
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #000;
+    margin: 20px 0;
+    color: #17a2b8;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+ 
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color: #17a2b8;
+    box-shadow: 0 4px 8px #17a2b8;
+    color: white;
+    border: none;
+  }
+  
+  .btn-secondary {
+    background-color: white;
+    color: #17a2b8;
+    border: 2px solid #17a2b8;
+    box-shadow: 0 4px 8px #17a2b8;
+  }
+  
+
+  @media (max-width: 768px) {
+    .about-container {
+      padding: 100px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    p {
+      font-size: 1rem;
+    }
+ 
+    .btn-primary,
+    .btn-secondary {
+      font-size: 0.9rem;
+      padding: 8px 15px;
+      
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    p {
+      font-size: 0.9rem;
+    }
+  }
+  

@@ -1,0 +1,136 @@
+/* General styling for products container */
+.products-container {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    padding: 5px;
+  }
+  
+  /* Grid layout for product cards */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Default responsive layout */
+    gap: 20px;
+  }
+  
+  /* Styling for individual product cards */
+  .product-card {
+    width: 250px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px #17a2b8;
+    text-align: center;
+  }
+  
+  /* Styling for product image */
+  .product-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Styling for product info */
+  .product-info {
+    padding: 10px;
+    
+  }
+  
+
+  .product-title {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+
+  .product-calories {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+
+  .btn {
+    
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #17a2b8;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #17a2b8;
+    box-shadow: 0 4px 8px #17a2b8;
+  }
+  
+ 
+  @media (max-width: 1024px) {
+    .products-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    }
+  
+    .product-title {
+      font-size: 1.1rem;
+    }
+  
+    .product-calories {
+      font-size: 0.85rem;
+    }
+  
+    .btn {
+      padding: 9px 18px;
+      font-size: 0.85rem;
+    }
+  }
+  
+  
+  @media (max-width: 780px) {
+    .products-grid {
+      grid-template-columns: repeat(3, 3fr); 
+    }
+  
+    .product-title {
+      font-size: 1rem;
+    }
+  
+    .product-calories {
+      font-size: 0.8rem;
+    }
+  
+    .btn {
+      padding: 8px 16px;
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Responsive Design for 480px screens */
+  @media (max-width: 480px) {
+    .products-grid {
+      grid-template-columns: 1fr; /* 1 column */
+    }
+  
+    .product-image {
+      height: 120px; /* Reduce image height on very small screens */
+    }
+  
+    .product-title {
+      font-size: 0.9rem;
+    }
+  
+    .product-calories {
+      font-size: 0.75rem;
+    }
+  
+    .btn {
+      padding: 7px 14px;
+      font-size: 0.75rem;
+    }
+  }
+  
