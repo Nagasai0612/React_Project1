@@ -1,13 +1,15 @@
 /* src/Weather.css */
 .app {
+  max-width: 90%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-family: Arial, sans-serif;
+  align-items: center; /* Aligns child elements (including weather card) to the center */
+  text-align: center;
   padding: 20px;
+  font-family: Arial, sans-serif;
 }
-
-.image-container {
+image-container {
   position: relative;
   display: inline-block;
 }
@@ -44,147 +46,135 @@
   font-size: 1rem;
 }
 
-h1 {
-  color: #17a2b8;
-  margin-bottom: 20px;
-  font-size: 24px;
-  text-align: center;
-}
-
 .form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 20px;
-  width: 100%;
-  max-width: 400px;
+  flex-wrap: wrap;
 }
 
 .input {
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  width: 100%;
-  outline: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   font-size: 16px;
-  box-sizing: border-box;
-  margin-bottom: 10px;
+  width: 100%;
+  max-width: 300px;
 }
 
 .btn {
-  padding: 10px 20px;
+  padding: 10px 15px;
   background-color: #17a2b8;
-  color: white;
+  color: #fff;
   border: none;
-  border-radius: 20px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
   transition: background-color 0.3s;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px #17a2b8;
 }
 
 .btn:hover {
-  background-color: #17a2b8;
-  box-shadow: 0 4px 8px #17a2b8;
-}
-
-.error {
-  color: red;
-  margin-bottom: 20px;
+  background-color: #218838;
 }
 
 .weather-card {
-  box-shadow: 0 4px 8px #17a2b8;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
+  background: #f9f9f9;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px #17a2b8;
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .weather-card h2 {
-  margin: 0;
-  font-size: 24px;
-  color: #333;
+  margin: 10px 0;
+  font-size: 1.5rem;
 }
 
 .weather-card p {
   margin: 5px 0;
-  color: #555;
-  font-size: 14px;
-}
-
-.weather-card h3 {
-  font-size: 35px;
-  margin: 10px 0;
-  color: #000;
+  font-size: 1rem;
+  color: #000000;
 }
 
 .weather-card img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
 }
 
-/* Responsive Styles */
+.aqi-info {
+  margin-top: 10px;
+  background: #17a2b8;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #000000;
+  width: 90%;
+  max-width: 400px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
 @media (max-width: 768px) {
-  .weather-card {
-    padding: 15px;
-    font-size: 14px;
-  }
-
-  h1 {
-    font-size: 20px;
-  }
-
-  .input {
-    font-size: 14px;
-    padding: 8px;
-  }
-
-  .btn {
-    font-size: 14px;
-    padding: 8px 15px;
-  }
-
-  .weather-card h2 {
-    font-size: 20px;
-  }
-
-  .weather-card h3 {
-    font-size: 28px;
-  }
-}
-
-@media (max-width: 480px) {
   .app {
     padding: 10px;
   }
 
-  h1 {
-    font-size: 18px;
-  }
-
   .input {
-    padding: 6px;
+    width: 100%;
   }
 
   .btn {
-    padding: 6px 10px;
-  }
-
-  .weather-card {
+    width: 100%;
     padding: 10px;
   }
 
-  .weather-card h2 {
-    font-size: 18px;
+  .weather-card {
+    padding: 15px;
   }
 
-  .weather-card h3 {
-    font-size: 24px;
+  .weather-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .weather-card p {
+    font-size: 0.9rem;
+  }
+
+  .aqi-info {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .weather-card h2 {
+    font-size: 1.2rem;
   }
 
   .weather-card img {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .aqi-info {
+    font-size: 12px;
+    padding: 6px;
   }
 }

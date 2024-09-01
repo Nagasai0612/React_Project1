@@ -1,4 +1,4 @@
-// src/NewsCard.js
+
 import React from 'react';
 import './NewsCard.css';
 
@@ -7,7 +7,7 @@ const NewsCard = ({ article }) => {
 
   return (
     <div className="news-card">
-      <img src={urlToImage} alt={title} className="news-image" />
+      {urlToImage && <img src={urlToImage} alt={title} className="news-image" />}
       <div className="news-content">
         <h3>{title}</h3>
         <p className="news-description">{description}</p>

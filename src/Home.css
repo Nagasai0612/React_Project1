@@ -1,207 +1,200 @@
-
-
 .App {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-    color: #333;
-  }
-  
-  
-  .navbar {
-    padding: 10px 30px;
-    background-color: #343a40;
-    border-bottom: 3px solid #6c757d;
-    position: fixed;
-    width: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
 
-    height: 60px;
-    z-index: 5;
+.navbar {
+  padding: 10px 30px;
+  background-color: #343a40;
+  border-bottom: 3px solid #6c757d;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.img {
+  width: 40px;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  background-color: #343a40; /* Set the background for the navbar items */
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff; /* White color for contrast */
+  font-weight: bold;
+  font-weight: 500;
+  margin-left: 15px;
+  transition: color 0.3s ease;
+  background-color: #343a40; /* Set background for each link */
+  padding: 10px 15px; /* Add padding to each link */
+  border-radius: 5px; /* Optional: add rounded corners */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #17a2b8;
+}
+
+.navbar-nav .dropdown-menu {
+  background-color: #b5babc;
+  border: none;
+}
+
+.navbar-nav .dropdown-item {
+  color: #040404;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-nav .dropdown-item:hover {
+  background-color: #495057;
+  color: #17a2b8;
+}
+
+/* ... other styles ... */
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 15px 20px;
   }
-  
+
   .navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #000000;
-    
+    font-size: 1.4rem;
   }
-  
-  .img{
-    width: 40px;
-  }
-  
+
   .navbar-nav .nav-link {
-    color: #060505;
-    font-weight: bold;
-    font-weight: 500;
-    margin-left: 15px;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    margin-left: 10px;
   }
-  
-  .navbar-nav .nav-link:hover {
-    color: #17a2b8;
+
+  .navbar-nav {
+    justify-content: center; /* Center the navbar items */
+    width: 100%;
   }
-  
-  .navbar-nav .dropdown-menu {
-    background-color: #b5babc;
-    border: none;
-  }
-  
-  .navbar-nav .dropdown-item {
-    color: #040404;
-    transition: background-color 0.3s ease;
-  }
-  
-  .navbar-nav .dropdown-item:hover {
-    background-color: #495057;
-    color: #17a2b8;
-  }
-  
-  
+
   .intro-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px;
-    background-color: #f5f5f5;
+    padding: 40px;
+    flex-direction: column;
+    text-align: center;
   }
-  
+
   .intro-text {
-    max-width: 600px;
+    max-width: 100%;
   }
-  
+
   .intro-image img {
-    border-radius: 10px;
-    margin-left: 20px;
+    margin-left: 0;
+    margin-top: 20px;
+    width: 50%;
   }
-  
+
   .intro-text h2 {
-    color: #17a2b8;
-    font-size: 2.5em;
-    font-weight: 700;
+    font-size: 2.2em;
   }
-  
+
   .intro-text p {
+    font-size: 1.2em;
+    line-height: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px 15px;
+  }
+
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.9rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .intro-section {
+    padding: 30px;
+    text-align: center;
+  }
+
+  .intro-text h2 {
+    font-size: 2em;
+  }
+
+  .intro-text p {
+    font-size: 1.1em;
+    line-height: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar-brand {
     font-size: 1.2rem;
-    line-height: 1.6;
-    color: #6c757d;
   }
-  
-  @media (max-width: 1024px) {
-    .navbar {
-      padding: 15px 20px;
-    }
-  
-    .navbar-brand {
-      font-size: 1.4rem;
-    }
-  
-    .navbar-nav .nav-link {
-      font-size: 1rem;
-      margin-left: 10px;
-    }
-  
-    .intro-section {
-      padding: 40px;
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .intro-text {
-      max-width: 100%;
-    }
-  
-    .intro-image img {
-      margin-left: 0;
-      margin-top: 20px;
-      width: 50%;
-    }
-  
-    .intro-text h2 {
-      font-size: 2.2em;
-    }
-  
-    .intro-text p {
-      font-size: 1.2em;
-      line-height: 2rem;
-    }
+
+  .img {
+    width: 30px;
   }
-  
-  
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      padding: 10px 15px;
-    }
-  
-    .navbar-brand {
-      font-size: 1.3rem;
-    }
-  
-    .navbar-nav {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-  
-    .navbar-nav .nav-link {
-      font-size: 0.9rem;
-      margin-left: 0;
-    }
-  
-    .intro-section {
-      padding: 30px;
-      text-align: center;
-    }
-  
-    .intro-text h2 {
-      font-size: 2em;
-    }
-  
-    .intro-text p {
-      font-size: 1.1em;
-      line-height: 1.8rem;
-    }
+
+  .navbar-nav {
+    gap: 5px;
+    width: 100%;
   }
-  
-  @media (max-width: 480px) {
-    .navbar {
-      padding: 10px;
-    }
-  
-    .navbar-brand {
-      font-size: 1.2rem;
-    }
-  
-    .img {
-      width: 30px;
-    }
-  
-    .navbar-nav {
-      gap: 5px;
-    }
-  
-    .navbar-nav .nav-link {
-      font-size: 0.8rem;
-    }
-  
-    .intro-section {
-      padding: 20px;
-    }
-  
-    .intro-text h2 {
-      font-size: 1.8em;
-    }
-  
-    .intro-text p {
-      font-size: 1em;
-      line-height: 1.6rem;
-    }
-  
-    .intro-image img {
-      width: 50%;
-      margin-top: 15px;
-    }
+
+  .navbar-nav .nav-link {
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 5px 0;
+    width: 100%;
   }
+
+  .intro-section {
+    padding: 20px;
+  }
+
+  .intro-text h2 {
+    font-size: 1.8em;
+  }
+
+  .intro-text p {
+    font-size: 1em;
+    line-height: 1.6rem;
+  }
+
+  .intro-image img {
+    width: 50%;
+    margin-top: 15px;
+  }
+}

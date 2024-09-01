@@ -5,10 +5,11 @@ import '../node_modules/bootstrap/dist/js/bootstrap.js';
 import About from './About'
 import Contact from './Contact'
 import Service from './Service'
-import Home from './Home.js';
+import Home from './Home.js'
 import Recipe from './Recipe.js';
 import Weather from './Weather.js';
 import News from './News.js'
+import Movies from './Movies.js'
 
 
 function Header() {
@@ -43,6 +44,7 @@ function Header() {
                                     <li><Link className="dropdown-item" to='/recipe'>Recipe Finder API</Link></li>
                                     <li><Link className="dropdown-item" to="/weather">Weather API</Link></li>
                                     <li><Link className="dropdown-item" to="/news">News API</Link></li>
+                                    <li><Link className="dropdown-item" to="/movies">Movies API</Link></li>
                                 </ul>
                             </li>
                         </ul>
@@ -65,7 +67,8 @@ function App() {
                     <Route path='/service' element={<Service />} />
                     <Route path='/recipe' element={<Recipe />} />
                     <Route path='/weather' element={<Weather />} />
-                    <Route path='/news' element={<News/>}/>
+                    <Route path='/news' element={<News />} />
+                    <Route path='/movies' element={<Movies />} />
                 </Routes>
             </BrowserRouter>
         </>

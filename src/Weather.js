@@ -6,21 +6,59 @@ import './Weather.css';
 const App = () => {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
+  const [aqiData, setAqiData] = useState(null);
   const [error, setError] = useState('');
 
   const API_KEY = '8d660e70afa9f1a6769cf02c8821699c'; // Replace with your OpenWeatherMap API key
 
+  // Function to fetch weather data
   const fetchWeather = async (e) => {
     e.preventDefault();
     setError('');
     try {
-      const response = await axios.get(
+      const weatherResponse = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
       );
-      setWeatherData(response.data);
+
+      setWeatherData(weatherResponse.data);
+
+      // Extract coordinates for AQI fetch
+      const { lat, lon } = weatherResponse.data.coord;
+      fetchAQI(lat, lon);
     } catch (err) {
       setError('City not found. Please try again.');
       setWeatherData(null);
+      setAqiData(null);
+    }
+  };
+
+  // Function to fetch AQI data
+  const fetchAQI = async (lat, lon) => {
+    try {
+      const aqiResponse = await axios.get(
+        `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+      );
+      setAqiData(aqiResponse.data.list[0]);
+    } catch (err) {
+      setError('Error fetching AQI data.');
+    }
+  };
+
+  // Function to determine AQI status based on index value
+  const getAqiStatus = (aqi) => {
+    switch (aqi) {
+      case 1:
+        return 'Good';
+      case 2:
+        return 'Fair';
+      case 3:
+        return 'Moderate';
+      case 4:
+        return 'Poor';
+      case 5:
+        return 'Very Poor';
+      default:
+        return 'Unknown';
     }
   };
 
@@ -28,7 +66,7 @@ const App = () => {
     <div className="app">
       <div className="image-container">
         <img
-          src="https://www.shutterstock.com/image-vector/bad-weather-icons-vector-dark-600nw-2411536035.jpg" 
+          src="https://static.vecteezy.com/system/resources/thumbnails/019/989/658/small/weather-and-meteorology-icon-set-sun-clouds-rain-symbol-isolated-png.png" 
           alt="Sample"
           className="background-image"
         />
@@ -60,7 +98,14 @@ const App = () => {
           />
           <h3>{Math.round(weatherData.main.temp)}°C</h3>
           <p>{weatherData.weather[0].description.toUpperCase()}</p>
+          <p>Humidity: {weatherData.main.humidity}%</p>
           <p>Wind Speed: {weatherData.wind.speed} m/s</p>
+          {aqiData && (
+            <div className="aqi-info">
+              <p>AQI: {aqiData.main.aqi} ({getAqiStatus(aqiData.main.aqi)})</p>
+              
+            </div>
+          )}
         </div>
       )}
     </div>

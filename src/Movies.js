@@ -1,55 +1,55 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import NewsCard from './NewsCard';
-import './News.css';
+import MovieCard from './MovieCard';
+import './Movies.css';
 
-const News = () => {
-  const [articles, setArticles] = useState([]);
+const Movie = () => {
+  const [movies, setMovies] = useState([]);
   const [error, setError] = useState('');
   const [query, setQuery] = useState('');
 
-  const API_KEY = '4cb3c2dbca864f8aa6a7c19a2ae7998c'; 
+  const API_KEY = '0f68b449c98129b39baeedc1be752980'; // Replace with your TMDb API key
 
- 
-  const fetchNews = async (searchQuery) => {
+  // Fetch movies based on the search query
+  const fetchMovies = async (searchQuery) => {
     setError('');
     try {
       const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=${searchQuery}&apiKey=${API_KEY}`
+        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchQuery}`
       );
-      setArticles(response.data.articles);
+      setMovies(response.data.results);
     } catch (err) {
-      setError('Error fetching news articles. Please try again later.');
+      setError('Error fetching movies. Please try again later.');
     }
   };
 
   useEffect(() => {
-    fetchNews('latest'); 
+    fetchMovies('popular'); // Fetch popular movies on initial load
   }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
-    fetchNews(query);
+    fetchMovies(query);
   };
 
   return (
     <div className="app">
-     <div className="image-container">
+      <div className="image-container">
         <img
-          src="https://static.vecteezy.com/system/resources/thumbnails/009/662/387/small/a-3d-rendering-image-of-metalic-and-crystal-frame-png.png" 
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxZw5h_XFAGeG4x9fVrNt4o7jqt3c6Y2Np_w&s" 
           alt="Sample"
           className="background-image"
         />
         <div className="text-overlay">
-          <h2>News API</h2>
+          <h2>Movies API</h2>
 
         </div>
       </div>
       <form onSubmit={handleSearch} className="search-form">
         <input
           type="text"
-          placeholder="Search news..."
+          placeholder="Search movies..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="input"
@@ -59,13 +59,13 @@ const News = () => {
         </button>
       </form>
       {error && <p className="error">{error}</p>}
-      <div className="news-container">
-        {articles.map((article, index) => (
-          <NewsCard key={index} article={article} />
+      <div className="movie-container">
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
     </div>
   );
 };
 
-export default News;
+export default Movie;
